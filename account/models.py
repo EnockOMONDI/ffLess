@@ -7,38 +7,20 @@ import datetime
 from cloudinary.models import CloudinaryField
 
 COUNTY_CATEGORY_TYPES = (
-('Kenya', 'Kenya'),
-('Lesotho', 'Lesotho'),
-('Liberia', 'Liberia'),
-('Libya', 'Libya'),
-('Madagascar', 'Madagascar'),
-('Malawi', 'Malawi'),
-('Mali', 'Mali'),
-('Mauritania', 'Mauritania'),
-('Mauritius', 'Mauritius'),
-('Morocco', 'Morocco'),
-('Mozambique', 'Mozambique'),
+('Westlands', 'Westlands'),
+('Langata', 'Langata'),
+('Kibra', 'Kibra'),
+('Embakasi North', 'Embakasi North'),
+('Embakasi South', 'Embakasi South'),
+('Embakasi Central', 'Embakasi Central'),
+('Embakasi West', 'Embakasi West'),
+('Embakasi East', 'Embakasi East'),
+('Makadara', 'Makadara'),
+('Starehe', 'Starehe'),
+
 
 )
-TOWN_CATEGORY_TYPES = (
-('Nairobi','Nairobi'),
-('Niger', 'Niger'),
-('Nigeria', 'Nigeria'),
-('Rwanda', 'Rwanda'),
-('Sao Tome and Principe', 'Sao Tome and Principe'),
-('Senegal', 'Senegal'),
-('Seychelles', 'Seychelles'),
-('Sierra Leone', 'Sierra Leone'),
-('Somalia', 'Somalia'),
-('South Africa', 'South Africa'),
-('South Sudan', 'South Sudan'),
-('Sudan', 'Sudan'),
-('Tanzania', 'Tanzania'),
-('Togo', 'Togo'),
-('Tunisia', 'Tunisia'),
-('Uganda', 'Uganda' ),
-('Zambia', 'Zambia' )
-)
+
 
 class PrivateMessage(models.Model):
     id = models.AutoField(primary_key=True)
@@ -54,22 +36,34 @@ class PrivateMessage(models.Model):
     class Meta:
         db_table = 'at_private_messages'
 
-
+class Client(models.Model):
+    client_id = models.AutoField(primary_key=True)
+    user = models.OneToOneField(User, on_delete=models.PROTECT)
+    is_eligible=models.BooleanField(default=False)
+    
+    
+   
+ 
 
 class Client(models.Model):
     client_id = models.AutoField(primary_key=True)
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     profile_pic =  CloudinaryField('image', blank=True, null=True)
-    bio = models.TextField(max_length=500, blank=True, null=True)
-    title = models.CharField(max_length=4, blank=True, null=True)
+    username = models.TextField(max_length=127, blank=True, null=True)
+    apartment = models.TextField(max_length=127, blank=True, null=True)
+    area_name = models.TextField(max_length=127, blank=True, null=True)
+    house_no = models.TextField(max_length=127, blank=True, null=True)
     county = models.CharField(max_length=127, choices=COUNTY_CATEGORY_TYPES,  blank=True,null=True,  default='Kenya')
     phone_number = models.IntegerField(blank=True, null=True)
-    town = models.CharField(max_length=127, choices=TOWN_CATEGORY_TYPES,  blank=True,null=True,  default='Nairobi')
- 
-    
+    no_of_orders=models.PositiveIntegerField(default=0)
+
+    def has_discount(self):
+    	if self.no_of_orders>0:
+    		return self.is_eligible
+    	
     def __str__(self):
         return self.user.first_name + " " + \
-                          self.user.last_name 
+                           self.user.last_name 
   
 
     def create_client_profile(sender, **kwargs):

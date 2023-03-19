@@ -18,32 +18,13 @@
               <div class="collapse navbar-collapse" id="navbarSupportedContent">
                  <div id="iq-menu-container" class="menu-main-menu-container">
                     <ul id="top-menu" class="navbar-nav">
-                     <li class="">
-                        <a style="font-family: 'Poppins', sans-serif; font-weight: 600;" href="javascript:void(0)" class="menu-item">About Us
-                          
-                        </a>
-                        <ul class="sub-menu" style="font-family: 'Poppins', sans-serif; font-weight: 600;" >
-                          
-                           <li class=""><a href="">About Food for Less</a></li>
-                           <li class=""><a href="">Our process</a></li>
-                           <li class=""><a href="">Your Contribution</a></li>
-                           <li class=""><a href="">Why Food for less</a></li>
-                        </ul>
-                     </li>
-                    
+                  
                      <li class="" style="font-family: 'Poppins', sans-serif; font-weight: 600;">
-                        <a href="javascript:void(0)" class="menu-item"  > Deals
-                                                 </a>
-                        <ul class="sub-menu">
-                           <li class=""><a href="">New Products</a></li>
-                           <li class=""><a href="">Shoping Packs</a></li>
-                           <li class=""><a href="">Weekend Offers</a></li>
-                        </ul>
+                        <a href="{% url 'landpage:welcome' %}" class="menu-item">Go Back
+                      
                      </li>
-                 
-                    
                        <li class="" style="font-family: 'Poppins', sans-serif; font-weight: 600;">
-                         <a href="{% url 'adverts:adverts_list' %}" class="menu-item">Contact Us
+                         <a href="" class="menu-item">Contact Us
                        
                       </li>
                    
@@ -206,14 +187,6 @@
 <div id="ajax_response_register"></div>
 {% include "base/js.html"  %}
 
-
-
-<!-------- end modal -------------------------------------------------------------->
-
-
-
-
-{% include "shop/homepage/page/jsmodal.html" %}
 
 
 <!-------- end modal -------------------------------------------------------------->

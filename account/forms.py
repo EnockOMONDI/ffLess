@@ -74,22 +74,26 @@ class ClientForm(forms.ModelForm):
             'folder': 'profilepic'
        },
       
-    )
+    ) 
     class Meta:
         model = Client
-        fields = { 'profile_pic', 'county','bio', 'title', 'town', 'phone_number'}
+        fields = { 'profile_pic', 'county','apartment', 'username','house_no', 'area_name', 'phone_number'}
         labels = {
             'county': 'County :',
             'phone_number' : 'phone_number',
-            'bio': 'Bio :',
-            'town':'town',
-            'title':'title'   
+
+            'apartment' : 'apartment',
+            'username' : 'username',
+            'house_no ' : 'house_no',
+            'area_name': 'area_name'
             
      }
 
         widgets = { 
-            'title' : TextInput(attrs={'class': u'form-control','placeholder': u'Enter First Name' }),
-            'bio': TextInput(attrs={'class': u'form-control','placeholder': u'Enter your Bio here'}),
+            'apartment' : TextInput(attrs={'class': u'form-control','placeholder': u'eg Kivu Homes' }),
+            'username': TextInput(attrs={'class': u'form-control','placeholder': u'eg champ'}),
+            'house_no' : TextInput(attrs={'class': u'form-control','placeholder': u'Enter House No' }),
+            'area_name' : TextInput(attrs={'class': u'form-control','placeholder': u'Enter Area Landmark' }),
             'county': Select(attrs={'class': u'form-control'}),
             'town': Select(attrs={'class': u'form-control'}),
             'phone_number': NumberInput(attrs={'class': u'form-control','placeholder': u'Enter your age here'}),

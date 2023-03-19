@@ -51,7 +51,7 @@ def update_profile(request):
         if profile_form.is_valid():
             profile_form.save()
             messages.success(request, _('Your profile was successfully updated!'))
-            return redirect ('account:view_my_ads', user_id = request.user.id )
+            return redirect ('shop:product_list' )
         else:
             messages.error(request, _('Please correct the error below.'))
     else:
@@ -59,9 +59,9 @@ def update_profile(request):
     return render(request, 'profile/edit_profile.html', {
         # 'user_form': user_form,
         'profile_form': profile_form,
-        'local_css_urls': settings.SB_ADMIN_2_CSS_LIBRARY_URLS,
-        'local_js_urls': settings.SB_ADMIN_2_JS_LIBRARY_URLS,
-    })
+        'local_css_urls' : settings.SB_ADMIN_3_CSS_LIBRARY_URLS,
+        'local_js_urls' : settings.SB_ADMIN_3_JS_LIBRARY_URLS
+          })
 
 
    

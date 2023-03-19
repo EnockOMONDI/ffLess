@@ -24,13 +24,13 @@ urlpatterns = [
     re_path(r'^jet/', include('jet.urls', 'jet')), #Django JET URLS
     re_path(r'^jet/dashboard/', include('jet.dashboard.urls', 'jet-dashboard')),  # Django JET dashboard URLS
     re_path('admin/', admin.site.urls),
-    re_path(r'', include('landpage.urls',namespace='landpage' )),
+    re_path(r'', include('landpage.urls', namespace='landpage' )),
     re_path(r'', include('registration.urls')),
-    re_path(r'', include('login.urls')), 
+    re_path(r'', include('login.urls')),
+    re_path(r'cart', include('cart.urls')), 
+    re_path(r'orders/', include('orders.urls')),
     re_path(r'', include('account.urls', namespace='account' )),
-     re_path(r'cart', include('cart.urls',namespace='cart')),
-    re_path(r'orders/', include('orders.urls',namespace='orders')),
-    re_path(r'', include('shop.urls', namespace='shop')),
+    re_path(r'', include('shop.urls', namespace='shop' )),
     re_path(r'', include('adverts.urls', namespace='adverts' )),
 
     

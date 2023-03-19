@@ -51,10 +51,10 @@ ALLOWED_HOSTS= ['*']
 
 INSTALLED_APPS = [
     'account.apps.AccountConfig',
-    'adverts.apps.AdvertsConfig',
-    'shop.apps.ShopConfig',
     'cart.apps.CartConfig',
+    'shop.apps.ShopConfig',
     'orders.apps.OrdersConfig',
+    'adverts.apps.AdvertsConfig',
     'landpage',
     'registration',
     'login',
