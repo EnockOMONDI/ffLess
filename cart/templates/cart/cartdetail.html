@@ -1,4 +1,4 @@
-{% extends 'shop/base2.html' %}
+{% extends 'shop/Foodstore/product/base.html' %}
 {% load static %}
 {% block title %}
     Your Shopping Cart
@@ -206,7 +206,7 @@
                                 </div>
                             </td>
                            </tr>
-                           {% with totail_items=cart|length %}
+                           {% with total_items=cart|length %}
                            {% if cart|length > 0 %}
                            <td colspan="6">
                             <div class="d-flex justify-content-between">

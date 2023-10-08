@@ -8,13 +8,13 @@
       <div class="col-sm-2 no-padding photobox">
         <div class="add-image">
  
-          <a href=" {% url 'adverts:advert_detail' id=advert.id slug=advert.slug %}"><img src="{{advert.image.url}}" alt=""></a>
+          <a href=" {% url 'advert:advert_detail' id=advert.id slug=advert.slug %}"><img src="{{advert.image.url}}" alt=""></a>
           <span class="photo-count"><i class="fas fa-camera"></i>1</span>
         </div>
       </div>
       <div class="col-sm-7 add-desc-box">
         <div class="add-details">
-          <h5 class="add-title"><a href=" {% url 'adverts:advert_detail' id=advert.id slug=advert.slug %}"> {{advert.name}}</a></h5>
+          <h5 class="add-title"><a href=" {% url 'advert:advert_detail' id=advert.id slug=advert.slug %}"> {{advert.name}}</a></h5>
           <div class="info">
               <span class="category"> <a href="{{advert.category.get_absolute_url}}"><strong>{{advert.category}}</strong></a></span> in 
               <span class="item-location"><i class="fas fa-map-marker"></i>  {{advert.location}} </span>
@@ -27,7 +27,7 @@
           </div>
          
           <div class="item_desc">
-            <a href=" {% url 'adverts:advert_detail' id=advert.id slug=advert.slug %}"> {{advert.description}}</a>
+            <a href=" {% url 'advert:advert_detail' id=advert.id slug=advert.slug %}"> {{advert.description}}</a>
           </div>
         </div>
       </div>
