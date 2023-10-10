@@ -105,18 +105,13 @@ TEMPLATES = [
 
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
-
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-     
-    
-    }
+    'default': dj_database_url.config(
+        default='postgres://default:HAsz9R5tJCgZ@ep-billowing-morning-22265697.us-east-1.postgres.vercel-storage.com:5432/verceldb'
+    )
 }
-DATABASES['default'].update(db_from_env)
 
-DATABASES['default'].update(db_from_env)
+
 # Password validation
 # https://docs.djangoproject.com/en/2.1/ref/settings/#auth-password-validators
 
