@@ -68,3 +68,24 @@ class Client(models.Model):
             client = Client.objects.create(user=kwargs['instance'])
 
     post_save.connect(create_client_profile, sender=User)
+
+class Vendor(models.Model):
+    vendor_id = models.AutoField(primary_key=True)
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    company_name = models.CharField(max_length=255)
+    address = models.CharField(max_length=255)
+    phone_number = models.CharField(max_length=15)
+    description = models.TextField()
+    
+    def __str__(self):
+        return f'Vendor: {self.company_name} ({self.user.first_name} {self.user.last_name})'
+    
+
+    class Meta:
+        db_table = 'vendors'
+
+    def create_vendor_profile(sender, **kwargs):
+        if kwargs['created']:
+            vendor = Vendor.objects.create(user=kwargs['instance'])
+
+    post_save.connect(create_vendor_profile, sender=User)
